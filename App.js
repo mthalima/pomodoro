@@ -5,7 +5,7 @@ import PomodoreScreen from "./screens/pomodoreScreen";
 export default function App() {
   return (
     <>
-      <PomodoreScreen />
+      <PomodoreScreen></PomodoreScreen>
       <StatusBar style="auto" />
     </>
   );
