@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import { IconButton } from "react-native-paper";
 import { Colors } from "../styles/Colors";
 
 const Timer = () => {
@@ -27,7 +28,7 @@ const Timer = () => {
 
   const resetTimer = () => {
     setIsActive(false);
-    setSeconds(0);
+    setSeconds(1500);
   };
 
   const formatTime = (time) => {
@@ -41,12 +42,19 @@ const Timer = () => {
     <View style={styles.container}>
       <Text style={styles.timer}>{formatTime(seconds)}</Text>
       <View style={styles.buttonContainer}>
-        <Button
+        <IconButton
           style={styles.timerButton}
-          title={isActive ? "Pause" : "Start"}
+          icon={isActive ? "pause" : "play"}
+          size={30}
+          iconColor={Colors.tomato}
           onPress={toggleTimer}
         />
-        <Button style={styles.timerButton} title="Reset" onPress={resetTimer} />
+        <IconButton
+          style={styles.timerButton}
+          icon="replay"
+          size={30}
+          onPress={resetTimer}
+        />
       </View>
     </View>
   );
@@ -56,12 +64,11 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "green",
   },
   timer: {
     fontSize: 64,
-    marginBottom: 20,
-    color: "#FDF7E4",
+    marginBottom: 10,
+    color: "#BBAB8C",
   },
   buttonContainer: {
     flexDirection: "row",
@@ -72,8 +79,8 @@ const styles = StyleSheet.create({
 
   timerButton: {
     backgroundColor: Colors.tomato,
-    color: Colors.tomato,
-    width: 20,
+    width: 90,
+    height: 40,
   },
 });
 
