@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     padding: 16,
     borderRadius: 10,
-    marginTop: 250,
+    marginTop: 60,
   },
 
   timer: {

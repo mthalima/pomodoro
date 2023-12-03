@@ -1,6 +1,7 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Timer from "../components/Timer";
+import { Colors } from "../styles/Colors";
 
 function PomodoreScreen() {
   return (
@@ -9,7 +10,8 @@ function PomodoreScreen() {
         colors={["rgba(243, 78, 50, 1)", "rgba(220, 44, 19, 1)"]}
         style={styles.background}
       />
-      <Timer></Timer>
+      <Text style={styles.title}>Pomodoro</Text>
+      <Timer />
     </View>
   );
 }
@@ -23,6 +25,15 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     backgroundColor: "rgba(220, 44, 19, 1)",
   },
+
+  title: {
+    textAlign: "center",
+    marginTop: 60,
+    fontWeight: "bold",
+    fontSize: 48,
+    color: Colors.seed,
+  },
+
   background: {
     position: "absolute",
     left: 0,
