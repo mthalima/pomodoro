@@ -6,7 +6,7 @@ function PomodoreScreen() {
   return (
     <View style={styles.container}>
       <LinearGradient
-        colors={["rgba(255, 165, 140, 1)", "rgba(255, 81, 32, 1)"]}
+        colors={["rgba(243, 78, 50, 1)", "rgba(220, 44, 19, 1)"]}
         style={styles.background}
       />
       <Timer></Timer>
@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "rgba(255, 81, 32, 1)",
+    justifyContent: "flex-start",
+    backgroundColor: "rgba(220, 44, 19, 1)",
   },
   background: {
     position: "absolute",

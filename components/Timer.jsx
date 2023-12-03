@@ -46,13 +46,14 @@ const Timer = () => {
           style={styles.timerButton}
           icon={isActive ? "pause" : "play"}
           size={30}
-          iconColor={Colors.tomato}
+          iconColor={Colors.seed}
           onPress={toggleTimer}
         />
         <IconButton
           style={styles.timerButton}
           icon="replay"
           size={30}
+          iconColor={Colors.seed}
           onPress={resetTimer}
         />
       </View>
@@ -64,11 +65,18 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
+    borderColor: Colors.seed,
+    borderWidth: 2,
+    padding: 16,
+    borderRadius: 10,
+    marginTop: 250,
   },
+
   timer: {
     fontSize: 64,
+    fontWeight: "bold",
     marginBottom: 10,
-    color: "#BBAB8C",
+    color: Colors.seed,
   },
   buttonContainer: {
     flexDirection: "row",
@@ -78,7 +86,7 @@ const styles = StyleSheet.create({
   },
 
   timerButton: {
-    backgroundColor: Colors.tomato,
+    backgroundColor: Colors.leaf,
     width: 90,
     height: 40,
   },
