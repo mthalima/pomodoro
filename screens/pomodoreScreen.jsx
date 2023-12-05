@@ -1,6 +1,7 @@
 import { StyleSheet, View, Text } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Timer from "../components/Timer";
+import RestTime from "../components/RestTime";
 import { Colors } from "../styles/Colors";
 
 function PomodoreScreen() {
@@ -11,7 +12,7 @@ function PomodoreScreen() {
         style={styles.background}
       />
       <Text style={styles.title}>Pomodoro</Text>
-      <Timer />
+      <RestTime />
     </View>
   );
 }
