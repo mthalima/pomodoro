@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { Colors } from "../styles/Colors";
 
 const RestTime = () => {
   const [seconds, setSeconds] = useState(300); // 5 minutes in seconds
@@ -33,10 +34,29 @@ const RestTime = () => {
   };
 
   return (
-    <View>
-      <Text style={{ fontSize: 48 }}>{formatTime(seconds)}</Text>
+    <View style={styles.restTimeContainer}>
+      <Text style={styles.restTime}>{formatTime(seconds)}</Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  restTimeContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: Colors.seed,
+    borderWidth: 2,
+    padding: 16,
+    borderRadius: 10,
+    marginTop: 60,
+  },
+
+  restTime: {
+    fontSize: 64,
+    fontWeight: "bold",
+    marginBottom: 10,
+    color: Colors.seed,
+  },
+});
 
 export default RestTime;
