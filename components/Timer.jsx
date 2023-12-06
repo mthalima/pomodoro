@@ -46,14 +46,14 @@ const Timer = () => {
           style={styles.timerButton}
           icon={isActive ? "pause" : "play"}
           size={30}
-          iconColor={Colors.seed}
+          iconColor={Colors.tomato}
           onPress={toggleTimer}
         />
         <IconButton
           style={styles.timerButton}
           icon="replay"
           size={30}
-          iconColor={Colors.seed}
+          iconColor={Colors.tomato}
           onPress={resetTimer}
         />
       </View>
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
 
   timerButton: {
-    backgroundColor: Colors.leaf,
+    backgroundColor: Colors.seed,
     width: 90,
     height: 40,
   },
