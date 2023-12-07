@@ -11,7 +11,15 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Pomodore" component={PomodoreScreen} />
+        <Stack.Screen
+          name="Pomodore"
+          component={PomodoreScreen}
+          options={{
+            headerStyle: { backgroundColor: "#ff6347" },
+            headerTitle: "My Pomodore",
+            headerTintColor: "white",
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

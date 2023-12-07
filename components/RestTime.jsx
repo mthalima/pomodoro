@@ -32,7 +32,7 @@ const Rest = () => {
   };
 
   const formatTime = (time) => {
-    const pad = (val) => (val < 1 ? `0${val}` : val);
+    const pad = (val) => (val < 10 ? `0${val}` : val);
     const minutes = Math.floor((time % 3600) / 60);
     const seconds = Math.floor(time % 60);
     return `${pad(minutes)}:${pad(seconds)}`;
@@ -66,10 +66,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderColor: Colors.seed,
-    borderWidth: 2,
-    padding: 16,
-    borderRadius: 10,
-    marginTop: 60,
+    padding: 36,
+    borderRadius: 200,
+    marginTop: 50,
+    height: 300,
+    width: 300,
+    backgroundColor: "rgba(200, 200, 200, 0.2)",
   },
 
   rest: {
@@ -77,17 +79,19 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 10,
     color: Colors.seed,
+    marginBottom: 25,
   },
+
   buttonContainer: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignContent: "center",
     width: "60%",
   },
 
   timerButton: {
     backgroundColor: Colors.seed,
-    width: 90,
+    width: 50,
     height: 40,
   },
 });
