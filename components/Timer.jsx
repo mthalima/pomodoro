@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { IconButton } from "react-native-paper";
 import { Colors } from "../styles/Colors";
+import Rest from "./RestTime";
 
 const Timer = () => {
-  const [seconds, setSeconds] = useState(1500);
+  const [seconds, setSeconds] = useState(10);
   const [isActive, setIsActive] = useState(false);
+  const [restIsActive, setRestIsActive] = useState(false);
 
   //UseEffect com a logica do tempo do timer
   useEffect(() => {
@@ -31,6 +33,12 @@ const Timer = () => {
     setSeconds(1500);
   };
 
+  const restTime = () => {
+    setIsActive(false);
+    setRestIsActive(true);
+    setSeconds(5);
+  };
+
   const formatTime = (time) => {
     const pad = (val) => (val < 10 ? `0${val}` : val);
     const minutes = Math.floor((time % 3600) / 60);
@@ -38,38 +46,50 @@ const Timer = () => {
     return `${pad(minutes)}:${pad(seconds)}`;
   };
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.timer}>{formatTime(seconds)}</Text>
-      <View style={styles.buttonContainer}>
-        <IconButton
-          style={styles.timerButton}
-          icon={isActive ? "pause" : "play"}
-          size={30}
-          iconColor={Colors.tomato}
-          onPress={toggleTimer}
-        />
-        <IconButton
-          style={styles.timerButton}
-          icon="replay"
-          size={30}
-          iconColor={Colors.tomato}
-          onPress={resetTimer}
-        />
+  if (isActive && seconds == 0) {
+    restTime();
+  }
+  if (restIsActive && seconds == 0) {
+    resetTimer();
+  } else {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.timer}>{formatTime(seconds)}</Text>
+        <View style={styles.buttonContainer}>
+          <IconButton
+            style={styles.timerButton}
+            icon={isActive ? "pause" : "play"}
+            size={30}
+            iconColor={Colors.tomato}
+            onPress={toggleTimer}
+          />
+          <IconButton
+            style={styles.timerButton}
+            icon="replay"
+            size={30}
+            iconColor={Colors.tomato}
+            onPress={resetTimer}
+          />
+        </View>
       </View>
-    </View>
-  );
+    );
+  }
 };
 
 const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    borderColor: Colors.seed,
-    borderWidth: 2,
-    padding: 16,
-    borderRadius: 10,
-    marginTop: 60,
+    borderColor: "rgba(255,255,255, 0.4)",
+    padding: 36,
+    borderRadius: 200,
+    marginTop: 50,
+    height: 280,
+    width: 280,
+    elevation: 10,
+    backgroundColor: "rgba(255,99,71, 1)",
+    opacity: 1,
+    borderWidth: 3,
   },
 
   timer: {
@@ -77,18 +97,22 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 10,
     color: Colors.seed,
+    opacity: 1,
   },
+
   buttonContainer: {
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-evenly",
     alignContent: "center",
     width: "60%",
   },
 
   timerButton: {
     backgroundColor: Colors.seed,
-    width: 90,
+    width: 50,
     height: 40,
+    opacity: 1,
+    marginHorizontal: 20,
   },
 });
 

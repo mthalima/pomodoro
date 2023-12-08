@@ -12,7 +12,7 @@ function PomodoreScreen() {
         style={styles.background}
       />
       <Text style={styles.title}>Pomodoro</Text>
-      <RestTime />
+      <Timer />
     </View>
   );
 }
@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
   title: {
     textAlign: "center",
     marginTop: 60,
-    fontWeight: "bold",
     fontSize: 48,
     color: Colors.seed,
   },

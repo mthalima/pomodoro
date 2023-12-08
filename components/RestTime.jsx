@@ -9,6 +9,7 @@ const Rest = () => {
 
   //UseEffect com a logica do tempo do timer
   useEffect(() => {
+    setIsActive(false);
     let interval;
 
     if (isActive) {
