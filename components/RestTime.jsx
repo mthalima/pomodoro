@@ -71,7 +71,9 @@ const styles = StyleSheet.create({
     marginTop: 50,
     height: 300,
     width: 300,
-    backgroundColor: "rgba(200, 200, 200, 0.2)",
+    elevation: 10,
+    backgroundColor: "rgba(255,99,71, 1)",
+    opacity: 1,
   },
 
   rest: {
@@ -80,6 +82,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     color: Colors.seed,
     marginBottom: 25,
+    opacity: 1,
   },
 
   buttonContainer: {
@@ -93,6 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.seed,
     width: 50,
     height: 40,
+    opacity: 1,
   },
 });
 
