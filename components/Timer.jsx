@@ -2,12 +2,39 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { IconButton } from "react-native-paper";
 import { Colors } from "../styles/Colors";
-import Rest from "./RestTime";
+import Bell from "./Bell";
+import { Audio } from "expo-av";
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(10);
   const [isActive, setIsActive] = useState(false);
   const [restIsActive, setRestIsActive] = useState(false);
+
+  //----------------------------
+
+  const soundUri = "../assets/sounds/bell.mp3";
+
+  const [sound, setSound] = React.useState();
+
+  async function playSound() {
+    console.log("Loading Sound");
+    const { sound } = await Audio.Sound.createAsync(
+      require("../assets/sounds/bell.mp3")
+    );
+    setSound(sound);
+
+    console.log("Playing Sound");
+    await sound.playAsync();
+  }
+
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          console.log("Unloading Sound");
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
 
   //UseEffect com a logica do tempo do timer
   useEffect(() => {
@@ -47,9 +74,11 @@ const Timer = () => {
   };
 
   if (isActive && seconds == 0) {
+    <Bell />;
     restTime();
   }
   if (restIsActive && seconds == 0) {
+    <Bell />;
     resetTimer();
   } else {
     return (

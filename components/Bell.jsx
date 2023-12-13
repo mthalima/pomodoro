@@ -1,36 +1,33 @@
-import React, { useEffect } from "react";
-import Sound from "react-native-sound";
+import * as React from "react";
+import { Text, View, StyleSheet, Button } from "react-native";
+import { Audio } from "expo-av";
 
-const SoundOnRender = () => {
-  useEffect(() => {
-    // Define the sound file path (replace 'soundfile.mp3' with your file)
-    const sound = new Sound(
-      "../assets/sounds/bell.mp3",
-      Sound.MAIN_BUNDLE,
-      (error) => {
-        if (error) {
-          console.log("Failed to load the sound", error);
-          return;
-        }
+export default function App() {
+  const [sound, setSound] = React.useState();
 
-        // Play the sound when the component is rendered
-        sound.play((success) => {
-          if (success) {
-            console.log("Sound played successfully");
-          } else {
-            console.log("Sound playback failed");
-          }
-        });
-      }
+  async function playSound() {
+    console.log("Loading Sound");
+    const { sound } = await Audio.Sound.createAsync(
+      require("../assets/sounds/bell.mp3")
     );
+    setSound(sound);
 
-    // Release the sound object when the component unmounts
-    return () => {
-      sound.release();
-    };
-  }, []);
+    console.log("Playing Sound");
+    await sound.playAsync();
+  }
 
-  return null; // Since this component just plays the sound, it doesn't render any UI
-};
+  React.useEffect(() => {
+    return sound
+      ? () => {
+          console.log("Unloading Sound");
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
 
-export default SoundOnRender;
+  return (
+    <View style={styles.container}>
+      <Button title="Play Sound" onPress={playSound} />
+    </View>
+  );
+}
