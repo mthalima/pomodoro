@@ -1,25 +1,21 @@
 import * as React from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { Text, View, StyleSheet, Button, Alert } from "react-native";
 import { Audio } from "expo-av";
 
-export default function App() {
+export default function Bell() {
   const [sound, setSound] = React.useState();
 
   async function playSound() {
-    console.log("Loading Sound");
     const { sound } = await Audio.Sound.createAsync(
       require("../assets/sounds/bell.mp3")
     );
     setSound(sound);
-
-    console.log("Playing Sound");
     await sound.playAsync();
   }
 
   React.useEffect(() => {
     return sound
       ? () => {
-          console.log("Unloading Sound");
           sound.unloadAsync();
         }
       : undefined;
@@ -31,3 +27,12 @@ export default function App() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignContent: "center",
+    width: "60%",
+  },
+});

@@ -17,20 +17,17 @@ const Timer = () => {
   const [sound, setSound] = React.useState();
 
   async function playSound() {
-    console.log("Loading Sound");
     const { sound } = await Audio.Sound.createAsync(
-      require("../assets/sounds/bell.mp3")
+      require("../assets/sounds/restdone.mp3")
     );
     setSound(sound);
 
-    console.log("Playing Sound");
     await sound.playAsync();
   }
 
   React.useEffect(() => {
     return sound
       ? () => {
-          console.log("Unloading Sound");
           sound.unloadAsync();
         }
       : undefined;
@@ -74,11 +71,11 @@ const Timer = () => {
   };
 
   if (isActive && seconds == 0) {
-    <Bell />;
+    playSound();
     restTime();
   }
   if (restIsActive && seconds == 0) {
-    <Bell />;
+    playSound;
     resetTimer();
   } else {
     return (
