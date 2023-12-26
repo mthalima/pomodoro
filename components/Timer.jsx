@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import { IconButton } from "react-native-paper";
 import { Colors } from "../styles/Colors";
 import Bell from "./Bell";
@@ -79,25 +79,28 @@ const Timer = () => {
     resetTimer();
   } else {
     return (
-      <View style={styles.container}>
-        <Text style={styles.timer}>{formatTime(seconds)}</Text>
-        <View style={styles.buttonContainer}>
-          <IconButton
-            style={styles.timerButton}
-            icon={isActive ? "pause" : "play"}
-            size={30}
-            iconColor={Colors.tomato}
-            onPress={toggleTimer}
-          />
-          <IconButton
-            style={styles.timerButton}
-            icon="replay"
-            size={30}
-            iconColor={Colors.tomato}
-            onPress={resetTimer}
-          />
+      //envolvi com esse pressable para o times startar quando clickar nele inteiro
+      <Pressable onPress={toggleTimer}>
+        <View style={styles.container}>
+          <Text style={styles.timer}>{formatTime(seconds)}</Text>
+          <View style={styles.buttonContainer}>
+            <IconButton
+              style={styles.timerButton}
+              icon={isActive ? "pause" : "play"}
+              size={30}
+              iconColor={Colors.tomato}
+              onPress={toggleTimer}
+            />
+            <IconButton
+              style={styles.timerButton}
+              icon="replay"
+              size={30}
+              iconColor={Colors.tomato}
+              onPress={resetTimer}
+            />
+          </View>
         </View>
-      </View>
+      </Pressable>
     );
   }
 };
