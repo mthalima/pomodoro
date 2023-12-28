@@ -84,21 +84,23 @@ const Timer = () => {
         <View style={styles.container}>
           <Text style={styles.timer}>{formatTime(seconds)}</Text>
           <View style={styles.buttonContainer}>
-            <IconButton
+            {/* <IconButton
               style={styles.timerButton}
               icon={isActive ? "pause" : "play"}
               size={30}
               iconColor={Colors.tomato}
               onPress={toggleTimer}
-            />
-            <IconButton
-              style={styles.timerButton}
-              icon="replay"
-              size={30}
-              iconColor={Colors.tomato}
-              onPress={resetTimer}
-            />
+            /> */}
           </View>
+        </View>
+        <View style={styles.resetContainer}>
+          <IconButton
+            style={styles.timerButton}
+            icon="replay"
+            size={30}
+            iconColor={Colors.tomato}
+            onPress={resetTimer}
+          />
         </View>
       </Pressable>
     );
@@ -138,10 +140,20 @@ const styles = StyleSheet.create({
 
   timerButton: {
     backgroundColor: Colors.seed,
-    width: 50,
-    height: 40,
+    width: 120,
+    height: 70,
     opacity: 1,
     marginHorizontal: 20,
+    borderRadius: 40,
+    elevation: 10,
+  },
+
+  resetContainer: {
+    width: 300,
+    height: 100,
+    marginTop: 30,
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
