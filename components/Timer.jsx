@@ -80,7 +80,7 @@ const Timer = () => {
   } else {
     return (
       //envolvi com esse pressable para o times startar quando clickar nele inteiro
-      <Pressable onPress={toggleTimer}>
+      <Pressable style={styles.pressableContainer} onPress={toggleTimer}>
         <View style={styles.container}>
           <Text style={styles.timer}>{formatTime(seconds)}</Text>
           <View style={styles.buttonContainer}>
@@ -121,6 +121,10 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,99,71, 1)",
     opacity: 1,
     borderWidth: 3,
+  },
+  pressableContainer: {
+    justifyContent: "center",
+    alignItems: "center",
   },
 
   timer: {
