@@ -4,6 +4,7 @@ import { IconButton } from "react-native-paper";
 import { Colors } from "../styles/Colors";
 import Bell from "./Bell";
 import { Audio } from "expo-av";
+import ResetButton from "./ResetButton";
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(10);
@@ -102,6 +103,7 @@ const Timer = () => {
             onPress={resetTimer}
           />
         </View>
+        <ResetButton></ResetButton>
       </Pressable>
     );
   }
