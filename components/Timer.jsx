@@ -105,10 +105,9 @@ const Timer = () => {
           />
         </View> */}
         </Pressable>
-        <ResetButton
-          style={styles.resetButtonContainer}
-          onPress={resetTimer}
-        ></ResetButton>
+        <View style={styles.resetButtonContainer}>
+          <ResetButton onPress={resetTimer}></ResetButton>
+        </View>
       </View>
     );
   }
@@ -164,7 +163,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  resetButtonContainer: {},
+  resetButtonContainer: {
+    marginTop: 40,
+  },
 });
 
 export default Timer;

@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "flex-start",
     backgroundColor: "rgba(220, 44, 19, 1)",
   },
 
@@ -32,6 +31,7 @@ const styles = StyleSheet.create({
     marginTop: 60,
     fontSize: 48,
     color: Colors.seed,
+    fontWeight: "bold",
   },
 
   background: {

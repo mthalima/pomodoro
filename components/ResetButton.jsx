@@ -5,7 +5,7 @@ function ResetButton({ onPress }) {
   return (
     <View>
       <Pressable style={styles.button} onPress={onPress}>
-        <Text>Reset</Text>
+        <Text style={styles.buttonText}>Reset</Text>
       </Pressable>
     </View>
   );
@@ -20,6 +20,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     borderRadius: 40,
     elevation: 3,
+  },
+
+  buttonText: {
+    color: Colors.tomato,
+    fontSize: 18,
   },
   pressed: {
     backgroundColor: Colors.leaf,
