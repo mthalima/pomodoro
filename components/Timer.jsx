@@ -81,20 +81,21 @@ const Timer = () => {
   } else {
     return (
       //envolvi com esse pressable para o times startar quando clickar nele inteiro
-      <Pressable style={styles.pressableContainer} onPress={toggleTimer}>
-        <View style={styles.container}>
-          <Text style={styles.timer}>{formatTime(seconds)}</Text>
-          <View style={styles.buttonContainer}>
-            {/* <IconButton
+      <View style={styles.mainContainer}>
+        <Pressable onPress={toggleTimer}>
+          <View style={styles.container}>
+            <Text style={styles.timer}>{formatTime(seconds)}</Text>
+            <View style={styles.buttonContainer}>
+              {/* <IconButton
               style={styles.timerButton}
               icon={isActive ? "pause" : "play"}
               size={30}
               iconColor={Colors.tomato}
               onPress={toggleTimer}
             /> */}
+            </View>
           </View>
-        </View>
-        <View style={styles.resetContainer}>
+          {/* <View style={styles.resetContainer}>
           <IconButton
             style={styles.timerButton}
             icon="replay"
@@ -102,33 +103,35 @@ const Timer = () => {
             iconColor={Colors.tomato}
             onPress={resetTimer}
           />
-        </View>
-        <ResetButton></ResetButton>
-      </Pressable>
+        </View> */}
+        </Pressable>
+        <ResetButton
+          style={styles.resetButtonContainer}
+          onPress={resetTimer}
+        ></ResetButton>
+      </View>
     );
   }
 };
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
   container: {
     justifyContent: "center",
     alignItems: "center",
     borderColor: "rgba(255,255,255, 0.4)",
-    padding: 36,
     borderRadius: 200,
     marginTop: 50,
     height: 280,
     width: 280,
-    elevation: 10,
+    elevation: 5,
     backgroundColor: "rgba(255,99,71, 1)",
     opacity: 1,
     borderWidth: 3,
   },
-  pressableContainer: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
   timer: {
     fontSize: 64,
     fontWeight: "bold",
@@ -161,6 +164,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  resetButtonContainer: {},
 });
 
 export default Timer;
