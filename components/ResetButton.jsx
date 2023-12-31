@@ -12,13 +12,14 @@ function ResetButton() {
 }
 const styles = StyleSheet.create({
   button: {
-    width: 300,
-    height: 100,
-    marginTop: 30,
+    backgroundColor: Colors.seed,
+    width: 120,
+    height: 70,
     justifyContent: "center",
     alignItems: "center",
-    color: "white",
-    backgroundColor: Colors.leaf,
+    marginHorizontal: 20,
+    borderRadius: 40,
+    elevation: 3,
   },
 });
 export default ResetButton;
