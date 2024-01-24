@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
-import { IconButton } from "react-native-paper";
 import { Colors } from "../styles/Colors";
-import Bell from "./Bell";
 import { Audio } from "expo-av";
 import ResetButton from "./ResetButton";
 
@@ -19,7 +17,7 @@ const Timer = () => {
 
   async function playSound() {
     const { sound } = await Audio.Sound.createAsync(
-      require("../assets/sounds/restdone.mp3")
+      require("../assets/sounds/bell.mp3")
     );
     setSound(sound);
 
