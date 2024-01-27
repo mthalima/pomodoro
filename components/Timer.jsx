@@ -3,11 +3,14 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import { Colors } from "../styles/Colors";
 import { Audio } from "expo-av";
 import ResetButton from "./ResetButton";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(10);
   const [isActive, setIsActive] = useState(false);
   const [restIsActive, setRestIsActive] = useState(false);
+  const [iconArray, setIconArray] = useState([]);
+
 
   //----------------------------
 
@@ -56,6 +59,14 @@ const Timer = () => {
     setSeconds(1500);
   };
 
+  //renderiza o icone
+  const renderIcon = () => {
+    const iconName = 'star'; // Change this to your desired icon name
+    const newIconArray = [...iconArray, { iconName }];
+    setIconArray(newIconArray);
+  };
+
+
   const restTime = () => {
     setIsActive(false);
     setRestIsActive(true);
@@ -72,6 +83,7 @@ const Timer = () => {
   if (isActive && seconds == 0) {
     playSound();
     restTime();
+    renderIcon();
   }
   if (restIsActive && seconds == 0) {
     playSound;
@@ -106,6 +118,11 @@ const Timer = () => {
         <View style={styles.resetButtonContainer}>
           <ResetButton onPress={resetTimer}></ResetButton>
         </View>
+        <View>
+          {iconArray.map((item, index) => (
+        <Icon key={index} name={item.iconName} size={30} color="white" />
+      ))}
+      </View>
       </View>
     );
   }

@@ -4,19 +4,11 @@ import { View, TouchableOpacity, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'; // You can choose any icon library you prefer
 
 
-const PomoList = () => {
-  const [iconArray, setIconArray] = useState([]);
-
-  const handleButtonClick = () => {
-    // Generate a random icon name for demonstration purposes
-    const iconName = 'star'; // Change this to your desired icon name
-    const newIconArray = [...iconArray, { iconName }];
-    setIconArray(newIconArray);
-  };
+const PomoList = ({renderIcon}) => {
 
   return (
     <View>
-      <TouchableOpacity onPress={handleButtonClick}>
+      <TouchableOpacity onPress={renderIcon}>
         <Text>Add Icon</Text>
       </TouchableOpacity>
 
