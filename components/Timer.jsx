@@ -118,9 +118,9 @@ const Timer = () => {
         <View style={styles.resetButtonContainer}>
           <ResetButton onPress={resetTimer}></ResetButton>
         </View>
-        <View>
+        <View style={styles.pomoList}>
           {iconArray.map((item, index) => (
-        <Icon key={index} name={item.iconName} size={30} color="white" />
+        <Icon style={styles.pomoIcon} key={index} name={item.iconName} size={36} color="white" />
       ))}
       </View>
       </View>
@@ -181,6 +181,15 @@ const styles = StyleSheet.create({
   resetButtonContainer: {
     marginTop: 40,
   },
+
+  pomoList:{
+    display: "flex",
+    flexDirection: "row"
+  },
+  pomoIcon:{
+    marginHorizontal: 5,
+    marginTop: 60,
+  }
 });
 
 export default Timer;
