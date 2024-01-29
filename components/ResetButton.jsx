@@ -3,7 +3,7 @@ import { Colors } from "../styles/Colors";
 
 function ResetButton({ onPress }) {
   return (
-    <View>
+    <View style={styles.buttonContainer}>
       <Pressable style={styles.button} onPress={onPress}>
         <Text style={styles.buttonText}>Reset</Text>
       </Pressable>
@@ -11,6 +11,10 @@ function ResetButton({ onPress }) {
   );
 }
 const styles = StyleSheet.create({
+  buttonContainer:{
+    elevation: 0
+  },
+  
   button: {
     backgroundColor: Colors.seed,
     width: 120,
@@ -19,7 +23,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginHorizontal: 20,
     borderRadius: 40,
-    elevation: 3,
+    elevation: 4,
   },
 
   buttonText: {
