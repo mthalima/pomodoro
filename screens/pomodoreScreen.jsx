@@ -2,7 +2,6 @@ import { StyleSheet, View, Text } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Timer from "../components/Timer";
 import { Colors } from "../styles/Colors";
-import PomoList from "../components/PomoList";
 
 function PomodoreScreen() {
   return (

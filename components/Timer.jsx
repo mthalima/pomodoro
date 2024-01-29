@@ -95,25 +95,7 @@ const Timer = () => {
         <Pressable onPress={toggleTimer}>
           <View style={styles.container}>
             <Text style={styles.timer}>{formatTime(seconds)}</Text>
-            <View style={styles.buttonContainer}>
-              {/* <IconButton
-              style={styles.timerButton}
-              icon={isActive ? "pause" : "play"}
-              size={30}
-              iconColor={Colors.tomato}
-              onPress={toggleTimer}
-            /> */}
-            </View>
           </View>
-          {/* <View style={styles.resetContainer}>
-          <IconButton
-            style={styles.timerButton}
-            icon="replay"
-            size={30}
-            iconColor={Colors.tomato}
-            onPress={resetTimer}
-          />
-        </View> */}
         </Pressable>
         <View style={styles.resetButtonContainer}>
           <ResetButton onPress={resetTimer}></ResetButton>
