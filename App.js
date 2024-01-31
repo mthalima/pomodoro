@@ -1,10 +1,12 @@
-import { StatusBar } from "expo-status-bar";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, Text, View } from "react-native";
 import PomodoreScreen from "./screens/pomodoreScreen";
+import GardenScreen from './screens/gardenScreen';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
@@ -20,7 +22,12 @@ export default function App() {
           }}
         />
       </Stack.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={PomodoreScreen} />
+        <Tab.Screen name="Garden" component={GardenScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
+    
   );
 }
 

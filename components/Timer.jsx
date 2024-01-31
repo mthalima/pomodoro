@@ -12,7 +12,7 @@ const Timer = () => {
   const [iconArray, setIconArray] = useState([]);
 
 
-  //----------------------------
+  //-------------------------------------------------------------------------------------------
 
   const soundUri = "../assets/sounds/bell.mp3";
 
