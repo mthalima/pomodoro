@@ -5,8 +5,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
 
 function Nave() {
   return (
@@ -14,7 +16,7 @@ function Nave() {
       tabBarStyle: { backgroundColor: "#f2ecd9" },
     }}>
       <Tab.Screen name="Pomo" component={PomodoreScreen} options={{headerShown: false}}/>
-      <Tab.Screen name="Garden" component={GardenScreen} />
+      <Tab.Screen name="Garden" component={GardenScreen} options={{headerShown: false}}/>
     </Tab.Navigator>
   );
 }
