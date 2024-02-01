@@ -11,9 +11,9 @@ const Tab = createBottomTabNavigator();
 function Nave() {
   return (
     <Tab.Navigator screenOptions={{
-      tabBarStyle: { backgroundColor: "#FF6347" },
+      tabBarStyle: { backgroundColor: "#f2ecd9" },
     }}>
-      <Tab.Screen name="Pomo" component={PomodoreScreen} />
+      <Tab.Screen name="Pomo" component={PomodoreScreen} options={{headerShown: false}}/>
       <Tab.Screen name="Garden" component={GardenScreen} />
     </Tab.Navigator>
   );
