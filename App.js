@@ -1,33 +1,37 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet} from "react-native";
 import PomodoreScreen from "./screens/pomodoreScreen";
 import GardenScreen from './screens/gardenScreen';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+function Nave() {
+  return (
+    <Tab.Navigator screenOptions={{
+      tabBarStyle: { backgroundColor: "#FF6347" },
+    }}>
+      <Tab.Screen name="Pomo" component={PomodoreScreen} />
+      <Tab.Screen name="Garden" component={GardenScreen} />
+    </Tab.Navigator>
+  );
+}
+
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="Pomodore"
-          component={PomodoreScreen}
-          options={{
-            headerStyle: { backgroundColor: "#ff6347" },
-            headerTitle: "My Pomodore",
-            headerTintColor: "white",
-          }}
+          <Stack.Screen
+          name="Nave"
+          component={Nave}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={PomodoreScreen} />
-        <Tab.Screen name="Garden" component={GardenScreen} />
-      </Tab.Navigator>
     </NavigationContainer>
-    
+
   );
 }
 
