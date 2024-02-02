@@ -4,6 +4,7 @@ import GardenScreen from './screens/gardenScreen';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
 
 
 const Stack = createNativeStackNavigator();
@@ -15,8 +16,15 @@ function Nave() {
     <Tab.Navigator screenOptions={{
       tabBarStyle: { backgroundColor: "#f2ecd9" },
     }}>
-      <Tab.Screen name="Pomo" component={PomodoreScreen} options={{headerShown: false}}/>
-      <Tab.Screen name="Garden" component={GardenScreen} options={{headerShown: false}}/>
+      <Tab.Screen name="Pomo" component={PomodoreScreen} 
+        options={{
+          ,
+          headerShown: false,
+          tabBarIcon: ({ size }) => (<Ionicons name="card" color={"#f5573b"} size={size} />)}}/>
+      <Tab.Screen name="Garden" component={GardenScreen} 
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ size }) => (<Ionicons name="card" color={"#f5573b"} size={size} /> )}}/>
     </Tab.Navigator>
   );
 }
