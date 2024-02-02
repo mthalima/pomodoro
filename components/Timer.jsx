@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import { Colors } from "../styles/Colors";
 import { Audio } from "expo-av";
 import ResetButton from "./ResetButton";
-import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(10);
@@ -60,7 +60,7 @@ const Timer = () => {
 
   //renderiza o icone
   const renderIcon = () => {
-    const iconName = "star"; // Change this to your desired icon name
+    const iconName = "poo"; // Change this to your desired icon name
     const newIconArray = [...iconArray, { iconName }];
     setIconArray(newIconArray);
   };
@@ -104,8 +104,8 @@ const Timer = () => {
               style={styles.pomoIcon}
               key={index}
               name={item.iconName}
-              size={36}
-              color="white"
+              size={30}
+              color="#f2ecd9"
             />
           ))}
         </View>
