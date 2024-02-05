@@ -2,8 +2,13 @@ import { StyleSheet, View, Text } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Timer from "../components/Timer";
 import { Colors } from "../styles/Colors";
+import { useFonts } from "expo-font";
 
 function PomodoreScreen() {
+  const [fontsLoaded] = useFonts({
+    "AmaticSC-Regular": require("../assets/fonts/AmaticSC-Regular.ttf"),
+  });
+
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -26,9 +31,10 @@ const styles = StyleSheet.create({
   },
 
   title: {
+    fontFamily: "AmaticSC-Regular",
+    fontSize: 60,
     textAlign: "center",
     marginTop: 100,
-    fontSize: 60,
     color: Colors.seed,
     fontWeight: "bold",
   },

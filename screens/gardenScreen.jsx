@@ -2,6 +2,7 @@ import { StyleSheet, View, Text } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import Timer from "../components/Timer";
 import { Colors } from "../styles/Colors";
+import { useFonts } from "expo-font";
 
 function GardenScreen() {
   return (
@@ -26,9 +27,9 @@ const styles = StyleSheet.create({
   },
 
   title: {
+    marginTop: 100,
+    fontSize: 60,
     textAlign: "center",
-    marginTop: 60,
-    fontSize: 48,
     color: Colors.seed,
     fontWeight: "bold",
   },
