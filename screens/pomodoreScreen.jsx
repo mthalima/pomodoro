@@ -15,7 +15,17 @@ function PomodoreScreen() {
         colors={["rgba(243, 78, 50, 1)", "rgba(220, 44, 19, 1)"]}
         style={styles.background}
       />
-      <Text style={styles.title}>Tomate</Text>
+      <Text
+        style={{
+          fontFamily: "AmaticSC-Regular",
+          fontSize: 60,
+          textAlign: "center",
+          marginTop: 100,
+          color: Colors.seed,
+        }}
+      >
+        Tomate
+      </Text>
       <Timer />
     </View>
   );
