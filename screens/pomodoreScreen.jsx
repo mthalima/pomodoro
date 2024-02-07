@@ -6,7 +6,7 @@ import { useFonts } from "expo-font";
 
 function PomodoreScreen() {
   const [fontsLoaded] = useFonts({
-    "AmaticSC-Regular": require("../assets/fonts/AmaticSC-Regular.ttf"),
+    "AmaticSC-Bold": require("../assets/fonts/AmaticSC-Bold.ttf"),
   });
 
   return (
@@ -17,14 +17,14 @@ function PomodoreScreen() {
       />
       <Text
         style={{
-          fontFamily: "AmaticSC-Regular",
+          fontFamily: "AmaticSC-Bold",
           fontSize: 60,
           textAlign: "center",
           marginTop: 100,
           color: Colors.seed,
         }}
       >
-        Tomate
+        Pomodoro
       </Text>
       <Timer />
     </View>
