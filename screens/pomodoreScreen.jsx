@@ -1,10 +1,10 @@
 import { StyleSheet, View, Text } from "react-native";
-import { useCallback } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import Timer from "../components/Timer";
 import { Colors } from "../styles/Colors";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import { useCallback } from "react";
 
 SplashScreen.preventAutoHideAsync();
 

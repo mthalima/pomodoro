@@ -23,7 +23,18 @@ function GardenScreen() {
         colors={["rgba(243, 78, 50, 1)", "rgba(220, 44, 19, 1)"]}
         style={styles.background}
       />
-      <Text style={styles.title}>Garden</Text>
+      <Text
+        style={{
+          marginTop: 60,
+          fontFamily: "AmaticSC-Bold",
+          fontSize: 60,
+          textAlign: "center",
+          marginTop: 100,
+          color: Colors.seed,
+        }}
+      >
+        Garden
+      </Text>
       <Timer />
     </View>
   );

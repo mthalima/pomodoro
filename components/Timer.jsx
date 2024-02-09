@@ -4,6 +4,9 @@ import { Colors } from "../styles/Colors";
 import { Audio } from "expo-av";
 import ResetButton from "./ResetButton";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { useCallback } from "react";
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(10);
@@ -83,13 +86,25 @@ const Timer = () => {
     restTime();
     renderIcon();
   }
+
+  const [fontsLoaded, fontError] = useFonts({
+    "NotoSansBengali-SemiBold": require("../assets/fonts/NotoSansBengali-SemiBold.ttf"),
+    "NotoSansBengali-Medium": require("../assets/fonts/NotoSansBengali-Medium.ttf"),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontError) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, fontError]);
+
   if (restIsActive && seconds == 0) {
     playSound;
     resetTimer();
   } else {
     return (
       //envolvi com esse pressable para o times startar quando clickar nele inteiro
-      <View style={styles.mainContainer}>
+      <View style={styles.mainContainer} onLayout={onLayoutRootView}>
         <Pressable onPress={toggleTimer}>
           <View style={styles.container}>
             <Text style={styles.timer}>{formatTime(seconds)}</Text>
@@ -133,8 +148,8 @@ const styles = StyleSheet.create({
     borderWidth: 3,
   },
   timer: {
-    fontSize: 64,
-    fontWeight: "bold",
+    fontSize: 100,
+    fontFamily: "AmaticSC-Bold",
     marginBottom: 10,
     color: Colors.seed,
     opacity: 1,
