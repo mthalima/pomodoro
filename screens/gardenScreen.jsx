@@ -3,8 +3,20 @@ import { LinearGradient } from "expo-linear-gradient";
 import Timer from "../components/Timer";
 import { Colors } from "../styles/Colors";
 import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { useCallback } from "react";
 
 function GardenScreen() {
+  const [fontsLoaded, fontError] = useFonts({
+    "AmaticSC-Bold": require("../assets/fonts/AmaticSC-Bold.ttf"),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontError) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, fontError]);
+
   return (
     <View style={styles.container}>
       <LinearGradient
