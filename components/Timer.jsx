@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
   },
   timer: {
+    textAlign: "center",
     fontSize: 100,
     fontFamily: "AmaticSC-Bold",
     marginBottom: 10,

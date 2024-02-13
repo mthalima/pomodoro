@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
+    textAlign: "center",
     color: Colors.tomato,
     fontSize: 30,
     fontFamily: "AmaticSC-Bold",
