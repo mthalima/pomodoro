@@ -87,24 +87,13 @@ const Timer = () => {
     renderIcon();
   }
 
-  const [fontsLoaded, fontError] = useFonts({
-    "NotoSansBengali-SemiBold": require("../assets/fonts/NotoSansBengali-SemiBold.ttf"),
-    "NotoSansBengali-Medium": require("../assets/fonts/NotoSansBengali-Medium.ttf"),
-  });
-
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded || fontError) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, fontError]);
-
   if (restIsActive && seconds == 0) {
     playSound;
     resetTimer();
   } else {
     return (
       //envolvi com esse pressable para o times startar quando clickar nele inteiro
-      <View style={styles.mainContainer} onLayout={onLayoutRootView}>
+      <View style={styles.mainContainer}>
         <Pressable onPress={toggleTimer}>
           <View style={styles.container}>
             <Text style={styles.timer}>{formatTime(seconds)}</Text>
