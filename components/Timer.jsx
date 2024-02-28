@@ -4,9 +4,6 @@ import { Colors } from "../styles/Colors";
 import { Audio } from "expo-av";
 import ResetButton from "./ResetButton";
 import Icon from "react-native-vector-icons/FontAwesome5";
-import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import { useCallback } from "react";
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(10);
