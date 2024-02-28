@@ -55,7 +55,7 @@ const Timer = () => {
 
   const resetTimer = () => {
     setIsActive(false);
-    setSeconds(1500);
+    setSeconds(10);
   };
 
   //renderiza o icone
