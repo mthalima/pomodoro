@@ -19,6 +19,7 @@ function GardenScreen() {
 
   return (
     <View style={styles.container}>
+      <View style={styles.folha}></View>
       <LinearGradient
         colors={["rgba(243, 78, 50, 1)", "rgba(220, 44, 19, 1)"]}
         style={styles.background}

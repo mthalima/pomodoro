@@ -85,7 +85,7 @@ const Timer = () => {
   }
 
   if (restIsActive && seconds == 0) {
-    playSound;
+    playSound();
     resetTimer();
   } else {
     return (
