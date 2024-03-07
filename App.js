@@ -14,7 +14,7 @@ function Nave() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarStyle: { backgroundColor: "tomato" },
+        tabBarStyle: { backgroundColor: Colors.leaf },
       }}
     >
       <Tab.Screen
@@ -32,8 +32,8 @@ function Nave() {
         component={GardenScreen}
         options={{
           headerShown: false,
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="flower" color={color} size={size} />
+          tabBarIcon: ({}) => (
+            <Ionicons name="flower" color={Colors.seed} size={33} />
           ),
         }}
       />
