@@ -12,32 +12,24 @@ const Tab = createBottomTabNavigator();
 
 function Nave() {
   return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarStyle: { backgroundColor: Colors.leaf },
-      }}
-    >
-      <Tab.Screen
-        name="Pomo"
-        component={PomodoreScreen}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({}) => (
-            <Ionicons name="alarm" color={Colors.seed} size={33} />
-          ),
+    <>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarStyle: { backgroundColor: Colors.leaf },
         }}
-      />
-      <Tab.Screen
-        name="Garden"
-        component={GardenScreen}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({}) => (
-            <Ionicons name="flower" color={Colors.seed} size={33} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
+      >
+        <Tab.Screen
+          name="Pomo"
+          component={PomodoreScreen}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({}) => (
+              <Ionicons name="alarm" color={Colors.seed} size={33} />
+            ),
+          }}
+        />
+      </Tab.Navigator>
+    </>
   );
 }
 
@@ -45,13 +37,6 @@ export default function App() {
   return (
     <NavigationContainer>
       <PomodoreScreen />
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Nave"
-          component={Nave}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
     </NavigationContainer>
   );
 }
