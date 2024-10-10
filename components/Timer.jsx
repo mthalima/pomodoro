@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
-import { IconButton } from "react-native-paper";
+import { View, Text, StyleSheet, Pressable, Alert } from "react-native";
 import { Colors } from "../styles/Colors";
-import Bell from "./Bell";
 import { Audio } from "expo-av";
 import ResetButton from "./ResetButton";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 const Timer = () => {
   const [seconds, setSeconds] = useState(10);
   const [isActive, setIsActive] = useState(false);
   const [restIsActive, setRestIsActive] = useState(false);
+  const [iconArray, setIconArray] = useState([]);
 
-  //----------------------------
+  //-------------------------------------------------------------------------------------------
 
   const soundUri = "../assets/sounds/bell.mp3";
 
@@ -19,7 +19,7 @@ const Timer = () => {
 
   async function playSound() {
     const { sound } = await Audio.Sound.createAsync(
-      require("../assets/sounds/restdone.mp3")
+      require("../assets/sounds/bell.mp3")
     );
     setSound(sound);
 
@@ -55,7 +55,14 @@ const Timer = () => {
 
   const resetTimer = () => {
     setIsActive(false);
-    setSeconds(1500);
+    setSeconds(10);
+  };
+
+  //renderiza o icone
+  const renderIcon = () => {
+    const iconName = "poo"; // Change this to your desired icon name
+    const newIconArray = [...iconArray, { iconName }];
+    setIconArray(newIconArray);
   };
 
   const restTime = () => {
@@ -74,9 +81,11 @@ const Timer = () => {
   if (isActive && seconds == 0) {
     playSound();
     restTime();
+    renderIcon();
   }
+
   if (restIsActive && seconds == 0) {
-    playSound;
+    playSound();
     resetTimer();
   } else {
     return (
@@ -85,28 +94,21 @@ const Timer = () => {
         <Pressable onPress={toggleTimer}>
           <View style={styles.container}>
             <Text style={styles.timer}>{formatTime(seconds)}</Text>
-            <View style={styles.buttonContainer}>
-              {/* <IconButton
-              style={styles.timerButton}
-              icon={isActive ? "pause" : "play"}
-              size={30}
-              iconColor={Colors.tomato}
-              onPress={toggleTimer}
-            /> */}
-            </View>
           </View>
-          {/* <View style={styles.resetContainer}>
-          <IconButton
-            style={styles.timerButton}
-            icon="replay"
-            size={30}
-            iconColor={Colors.tomato}
-            onPress={resetTimer}
-          />
-        </View> */}
         </Pressable>
         <View style={styles.resetButtonContainer}>
           <ResetButton onPress={resetTimer}></ResetButton>
+        </View>
+        <View style={styles.pomoList}>
+          {iconArray.map((item, index) => (
+            <Icon
+              style={styles.pomoIcon}
+              key={index}
+              name={item.iconName}
+              size={30}
+              color="#f2ecd9"
+            />
+          ))}
         </View>
       </View>
     );
@@ -132,8 +134,9 @@ const styles = StyleSheet.create({
     borderWidth: 3,
   },
   timer: {
-    fontSize: 64,
-    fontWeight: "bold",
+    textAlign: "center",
+    fontSize: 100,
+    fontFamily: "AmaticSC-Bold",
     marginBottom: 10,
     color: Colors.seed,
     opacity: 1,
@@ -165,6 +168,15 @@ const styles = StyleSheet.create({
   },
   resetButtonContainer: {
     marginTop: 40,
+  },
+
+  pomoList: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  pomoIcon: {
+    marginHorizontal: 5,
+    marginTop: 60,
   },
 });
 

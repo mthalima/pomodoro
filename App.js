@@ -1,16 +1,57 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import RestTime from "./components/RestTime";
+import { StyleSheet } from "react-native";
 import PomodoreScreen from "./screens/pomodoreScreen";
+import GardenScreen from "./screens/gardenScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
+import { Colors } from "./styles/Colors";
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function Nave() {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: { backgroundColor: Colors.leaf },
+      }}
+    >
+      <Tab.Screen
+        name="Pomo"
+        component={PomodoreScreen}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({}) => (
+            <Ionicons name="alarm" color={Colors.seed} size={33} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Garden"
+        component={GardenScreen}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({}) => (
+            <Ionicons name="flower" color={Colors.seed} size={33} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
 
 export default function App() {
   return (
     <NavigationContainer>
       <PomodoreScreen />
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Nave"
+          component={Nave}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

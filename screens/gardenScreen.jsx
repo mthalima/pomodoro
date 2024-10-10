@@ -6,9 +6,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
 
-SplashScreen.preventAutoHideAsync();
-
-function PomodoreScreen() {
+function GardenScreen() {
   const [fontsLoaded, fontError] = useFonts({
     "AmaticSC-Bold": require("../assets/fonts/AmaticSC-Bold.ttf"),
   });
@@ -20,7 +18,7 @@ function PomodoreScreen() {
   }, [fontsLoaded, fontError]);
 
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
+    <View style={styles.container}>
       <LinearGradient
         colors={["rgba(243, 78, 50, 1)", "rgba(220, 44, 19, 1)"]}
         style={styles.background}
@@ -34,14 +32,14 @@ function PomodoreScreen() {
           color: Colors.seed,
         }}
       >
-        Pomodoro
+        Garden
       </Text>
       <Timer />
     </View>
   );
 }
 
-export default PomodoreScreen;
+export default GardenScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -51,10 +49,9 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontFamily: "AmaticSC-Regular",
+    marginTop: 100,
     fontSize: 60,
     textAlign: "center",
-    marginTop: 100,
     color: Colors.seed,
     fontWeight: "bold",
   },
